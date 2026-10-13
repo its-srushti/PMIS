@@ -1,0 +1,11 @@
+static,final,abstract this are 3 types of variables
+static collage="IIT"---its common for all students
+#final 
+final pi=3.14
+pi=3.147----through an error 
+abstract---given to function
+abstract calculateArea();
+
+
+
+
