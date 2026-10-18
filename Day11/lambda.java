@@ -183,4 +183,3 @@ public class lambda {
         Program1.main(args);  // Change Program1 to another class
     }
 }
-```
