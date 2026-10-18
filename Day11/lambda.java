@@ -1,249 +1,186 @@
-// code witthout lambda
 
-// import javax.sound.sampled.SourceDataLine;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
 
-// @FunctionalInterface 
-// interface Greeter{
+// PROGRAM 1: Runnable Lambda
+class Program1 {
+    public static void main(String[] args) {
+        Runnable r = () -> System.out.println("Hello Java");
+        r.run();
+    }
+}
+
+// // PROGRAM 2: Greeter Lambda
+// @FunctionalInterface
+// interface Greeter {
 //     void greet(String name);
 // }
-// public class lambda{
-//     public static void main(String[] args){
-// {
-//     Greeter g= new Greeter() {
-//         System.out.println("hello"+name);
-//         }
-//     };
-//     g.greet("srushti");
-    
-// }
-// }
 
-
-
-// package Day11;
-
-/* 
-@FunctionalInterface 
-interface Greeter{
-    void greet(String name);
-}
-public class lambda{
-    public static void main(String[] args){
-        Greeter g= name -> {System.out.println("hello"+name);
-        System.out.println("welcome back");
-    };   //use curly braces for multiple lines otherwise avoid it
-        g.greet("srushti");
-    }
-
-}
-
-
-*/
-
-
-// no parameters:()->syso("Hi")
-// One parameter:x-> x*2
-// two parameters: (a,b)-> a+b;
-//(int a,intb)-->a+b
-
-
-
-// // built  in fucntion interface
-// predicate<T> test(t) T->t/f 1/0
-// function<T,R> :applu(t);T->R
-// consumer<T> : r -> "hello,hii"
-
-// import java.util.*;
-// import java.util.function.Predicate;
-// public class lambda{
+// class Program2 {
 //     public static void main(String[] args) {
-//         Predicate<Integer> isAdult =age -> age>=18;
-//         System.out.println(isAdult.test(20));
-//         System.out.println(isAdult.test(15));
+//         Greeter g = name -> System.out.println("Hello " + name);
+//         g.greet("Srushti");
 //     }
 // }
 
-
-
-// import java.util.function.*;
-// import java.util.*;
-// class lambda{
-//     public static void main(String[] args){
-//         Function<String,Integer>getLength = name -> name.length();
-//         System.out.println(getLength.apply("java"));
-//         System.out.println(getLength.apply("john"));
-
-//     }
-// }
-
-
-// import java.util.function.*;
-// import java.util.*;
-// class lambda{
-
-//     public static void main(String[] args){
-//         Function<Integer,Double>geFunction =math -> Math.sqrt(math);
-//         System.out.println(geFunction.apply(3));
-
-//     }
-// }
-
-
-
-// import java.util.function.*;
-// class lambda{
-//     public static void main(String[ ] args){
-//         Consumer<String> pr =message -> System.out.println("message");
-
-//     pr.accept("hello i love cricket");
-//     }
-// }
-
-
-
-
-// import java.util.function.*;
-
-// class Lambda {
+// // PROGRAM 3: Predicate
+// class Program3 {
 //     public static void main(String[] args) {
+//         Predicate<Integer> isAdult = age -> age >= 18;
+//         System.out.println(isAdult.test(21));
+//     }
+// }
 
-//         Supplier<String> message = () -> "Welcome to ";
+// // PROGRAM 4: Function - String Length
+// class Program4 {
+//     public static void main(String[] args) {
+//         Function<String, Integer> length = str -> str.length();
+//         System.out.println(length.apply("Srushti"));
+//     }
+// }
 
+// // PROGRAM 5: Function - Square Root
+// class Program5 {
+//     public static void main(String[] args) {
+//         Function<Integer, Double> squareRoot = n -> Math.sqrt(n);
+//         System.out.println(squareRoot.apply(25));
+//     }
+// }
+
+// // PROGRAM 6: Consumer
+// class Program6 {
+//     public static void main(String[] args) {
+//         Consumer<String> print = message -> System.out.println(message);
+//         print.accept("Welcome to Java");
+//     }
+// }
+
+// // PROGRAM 7: Supplier
+// class Program7 {
+//     public static void main(String[] args) {
+//         Supplier<String> message = () -> "Hello Srushti";
 //         System.out.println(message.get());
 //     }
 // }
 
+// // PROGRAM 8: Consumer - Notification
+// class Program8 {
+//     public static void main(String[] args) {
+//         Consumer<String> notification =
+//                 name -> System.out.println("Welcome " + name);
 
-
-
-// import java.util.function.*;
-// class lambda{
-//     public static void main(String[] args){
-//         Consumer<String> smsNotifier = mobNo ->{
-//             System.out.println("sending otp to the ph no.: "+ mobNo);
-//         };
-//         smsNotifier.accept("+91 12345567567");
+//         notification.accept("Srushti");
 //     }
 // }
 
+// // PROGRAM 9: Generate Six-Digit OTP
+// class Program9 {
+//     public static void main(String[] args) {
+//         Random random = new Random();
+//         Supplier<Integer> otp =
+//                 () -> 100000 + random.nextInt(900000);
 
-
-
-
-// import java.util.function.*;
-// import java.util.Random;
-
-// class lambda{
-//     public static void main(String[] args){
-//         Supplier<String> otpGen =() ->{
-//             Random random=new Random();
-//             int number=100000+ random.nextInt(9000000);
-//             return String.valueOf(number);
-
-//         };
-//         String userOtp=otpGen.get();
-//         System.out.println("the otp is"+userOtp);
+//         System.out.println(otp.get());
 //     }
 // }
 
+// // PROGRAM 10: Even Numbers and Squares Using Loop
+// class Program10 {
+//     public static void main(String[] args) {
+//         List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-
-// import java.util.*;
-// class lambda{
-//     public static void main(String[] args){
-//         List<Integer> nums=Arrays.asList(
-//         1,2,3,4,5,5);
-
-//     };
-//     List<Integer> result=new ArrayList<>();
-
-//     for (int n: nums){
-//         if(n%2==0){
-//             result.add(n*n);
+//         for (int n : nums) {
+//             if (n % 2 == 0) {
+//                 System.out.println(n * n);
+//             }
 //         }
 //     }
 // }
 
+// // PROGRAM 11: Even Numbers and Squares Using Streams
+// class Program11 {
+//     public static void main(String[] args) {
+//         List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-// import java.util.*;
-// import java.util.stream.*;
-// class lambda{
-//     public static void main(String args){
-//         List<Integer> nums =Arrays.asList(1,2,3,4,5,5);
-
-//         List<Integer> res=nums.stream()
-//         .filter(n -> n%2 ==0)
-//         .map(n -> n*n)
-//         .collect(Collectors.toList());
-//         System.out.println("OG List:"+nums);
-//         System.out.println("Result"+res);
+//         nums.stream()
+//             .filter(n -> n % 2 == 0)
+//             .map(n -> n * n)
+//             .forEach(System.out::println);
 //     }
 // }
 
-/*  source (where the data comes from)[my-list.stream()]
-->intermediate operations(transfor/filter){.filter(),.map()...}
-->terminal operations(produce final result)[.collect(),.count()]
-*/
+// // PROGRAM 12: Different Ways to Create Streams
+// class Program12 {
+//     public static void main(String[] args) {
+//         List<Integer> nums = Arrays.asList(1, 2, 3, 4);
+//         nums.stream().forEach(System.out::println);
 
-// import java.util.*;
-// import java.util.stream.*;
-
-// class lambda{
-//     public static void main(String[] args){
-//         List<String>list= List.of("a","b","c");
-//         System.out.println("System from a list:");
-//         list.stream().forEach(System.out::println);
-//         int[] arr={1,2,3};
+//         Integer[] arr = {10, 20, 30};
 //         Arrays.stream(arr).forEach(System.out::println);
-//         Stream.of("x","y","z").forEach(System.out::println);
-//         IntStream.range(1,5).forEach(System.out::println);    //1 to 4 end value is excluded
 
+//         Stream.of("Java", "Python", "SQL")
+//               .forEach(System.out::println);
 
+//         IntStream.range(1, 5).forEach(System.out::println);
 //     }
 // }
-// import java.util.*;
-// import java.util.stream.*;
 
-// class lambda{
-//     public static void main(String[] args){
-//         // filter keep all the item that pass a defined test
-//         List<Integer> nums = List.of(5,12,8,3,20,7);
-//         List<Integer>result=nums.stream()
-//         .filter(n -> n>=7)
-//         .collect(Collectors.toList());
+// // PROGRAM 13: Filter Numbers Greater Than or Equal to 7
+// class Program13 {
+//     public static void main(String[] args) {
+//         List<Integer> nums = Arrays.asList(2, 5, 7, 9, 3, 10);
+
+//         nums.stream()
+//             .filter(n -> n >= 7)
+//             .forEach(System.out::println);
+//     }
+// }
+
+// // PROGRAM 14: Multiply Numbers by 2
+// class Program14 {
+//     public static void main(String[] args) {
+//         List<Integer> nums = Arrays.asList(5, 12, 8, 3, 4);
+
+//         List<Integer> result = nums.stream()
+//                 .map(n -> n * 2)
+//                 .collect(Collectors.toList());
+
 //         System.out.println(result);
 //     }
 // }
 
-// import java.util.List;
+// // PROGRAM 15: Sort Words by Length
+// class Program15 {
+//     public static void main(String[] args) {
+//         List<String> words =
+//                 Arrays.asList("Java", "C", "Python", "SQL");
 
+//         List<String> sorted = words.stream()
+//                 .sorted((a, b) -> a.length() - b.length())
+//                 .collect(Collectors.toList());
 
-// class lambda{
-//     public static void main(String[] args){
-//         List<Integer> nums=List.of(5,12,8,3,4,5);
-//         List<Integer> res=nums.stream()
-//         .map(n -> n*2)// intermediate operation
-//         .collect(Collectors.toList());
-//         System.out.println(res);
-
+//         System.out.println(sorted);
 //     }
 // }
 
+// // PROGRAM 16: Sort Numbers in Ascending Order
+// class Program16 {
+//     public static void main(String[] args) {
+//         List<Integer> nums = Arrays.asList(5, 2, 8, 1, 4);
 
-import java.util.stream.*;
-class lambda{
-    public static void main(String[] args){
-        //sorted
-        List<Integer> nums=List.of(5,4,3,2,1,19);
-        List<String> words=List.of("banana","fig","apple","kiwi");
-        List<String>byLength=words.stream()
-        .sorted(a,b)  -> a.length() - b.length()
-        .collect(Collectors.toList());
+//         List<Integer> sorted = nums.stream()
+//                 .sorted()
+//                 .collect(Collectors.toList());
 
-        List<Integer>res=nums.stream()
-        sorted()
-        .collect(Collectors.toList());
-        System.out.pritnln(res);
-        System.out.printlnbyLength):
+//         System.out.println(sorted);
+//     }
+// }
+
+// MAIN CLASS: Choose Which Program to Run
+public class lambda {
+    public static void main(String[] args) {
+        Program1.main(args);  // Change Program1 to another class
+    }
 }
-}
+```
