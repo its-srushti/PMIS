@@ -188,8 +188,7 @@ public class Main {
 
     Student[] students=new Student[5];   //here i create student datatype or my own datatype
         // create one student here
-    Student kunal;   //it consist of 3 properties rno,name,marks   declare the reference to the obj
-    Student kunal=new Student(13,"kunal",84.3);  //bind this arguments with the object
+    Student kunal = new Student(13, "kunal", 84.3f);
       
     System.out.println(kunal);
     System.out.println(kunal.rno);
@@ -207,7 +206,13 @@ class Student{
 //    properties object by object
 // we need one word to access every object
 
-    Student(){
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    Student() {
         this.rno=13;
         this.name="aaaaa";
         this.marks=88.5f;
@@ -260,8 +265,7 @@ public class Main {
 
     Student[] students=new Student[5];   //here i create student datatype or my own datatype
         // create one student here
-    Student kunal;   //it consist of 3 properties rno,name,marks   declare the reference to the obj
-    Student kunal=new Student(13,"kunal",84.3);  //bind this arguments with the object
+    Student kunal = new Student(13, "kunal", 84.3f);
       
     kunal.changeName("rahul");
     kunal.greeting();
@@ -289,17 +293,18 @@ class Student{
         this.name=newName;
     }
 
-    Student(){      //when you call without values then it take this values otherwise it will take below one para
+    Student(int rno, String name, float marks) {
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    Student() {      //when you call without values then it take this values otherwise it will take below one para
         this.rno=13;
         this.name="aaaaa";
         this.marks=88.5f;
 
     }
-    Student(){
-        
-    }
 }
-
-
 
 

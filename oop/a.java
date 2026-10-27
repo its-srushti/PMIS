@@ -207,8 +207,8 @@ class a{
 
 
 
-//string
-String c="hello";
-String b="hrllo";
-c.equals(b);
-hello.equals("hello");
+// //string
+// String c="hello";
+// String b="hrllo";
+// c.equals(b);
+// hello.equals("hello");
